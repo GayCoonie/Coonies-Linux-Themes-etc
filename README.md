@@ -19,7 +19,7 @@ This is compatibility archaeology, not a modernization exercise. Vista glass, XP
 
 ## Start here
 
-- Theme work: read [`themes/darkcold-coonie/README.md`](themes/darkcold-coonie/README.md), then run its `tools/test.sh`.
+- Theme work: read [`themes/darkcold-coonie/README.md`](themes/darkcold-coonie/README.md). For the full asset test, extract the 2.2.2 release archive and run `tools/test.sh` inside the extracted tree.
 - Icon work: read [`icons/coonie-aero-hoard/README.md`](icons/coonie-aero-hoard/README.md). The compact source kit expects curated donor repositories beside it in `../sources`.
 - Cursor work: read [`cursors/coonie-aero-gel-v1/README.md`](cursors/coonie-aero-gel-v1/README.md). Its source bundle rebuilds the Xcursor files from the atlases.
 - Cross-component work: read [`docs/COMPONENT-MATRIX.md`](docs/COMPONENT-MATRIX.md), [`docs/REGRESSION-CHECKLIST.md`](docs/REGRESSION-CHECKLIST.md), and [`AGENTS.md`](AGENTS.md).
