@@ -1,0 +1,225 @@
+/* Darkcold NG compatibility and identity overlay.
+ * Uses selectors shared by Cinnamon 6.0 and 6.6, then adds harmless 6.6 selectors. */
+stage {
+  color: @@TEXT@@;
+  font-family: "Belligerent Madness", "Noto Sans", sans-serif;
+  /* DarkCold has no use for the symbolic-icon monoculture. */
+  -st-icon-style: regular;
+}
+
+#panel {
+  color: @@TEXT@@;
+  /* Reinforce the global rule at the panel boundary, where built-in applets
+   * most often request St.IconType.SYMBOLIC explicitly. */
+  -st-icon-style: regular;
+  background-color: @@PANEL@@;
+  background-gradient-direction: vertical;
+  background-gradient-start: @@SURFACE_ALT@@;
+  background-gradient-end: #000000;
+  border-image: url("panel-bg.png");
+  border-top: 1px solid rgba(255,255,255,.24);
+  border-bottom: 2px solid @@SECONDARY@@;
+  box-shadow: 0 1px 7px rgba(0,0,0,.92), inset 0 1px @@ACCENT@@, inset 0 -1px @@SECONDARY@@;
+}
+#panelLeft, #panelCenter, #panelRight { spacing: 1px; }
+.panel-button, .window-list-item-box, .grouped-window-list-item-box {
+  color: @@TEXT@@;
+  background-color: @@PANEL@@;
+  background-image: url("button-normal.png");
+  background-size: 100% 100%;
+  border: 1px solid rgba(0,0,0,.88);
+  border-image: url("button-normal.png") 3 3 3 3 stretch stretch;
+  border-radius: 0;
+  box-shadow: inset 0 1px rgba(255,255,255,.13), inset 0 -1px rgba(0,0,0,.9);
+  transition-duration: 120;
+}
+.panel-button:hover, .panel-button:active, .panel-button:checked,
+.window-list-item-box:hover, .window-list-item-box:active, .window-list-item-box:focus,
+.grouped-window-list-item-box:hover, .grouped-window-list-item-box:active,
+.grouped-window-list-item-box:checked, .grouped-window-list-item-box:focus {
+  color: @@ACCENT@@;
+  background-image: url("button-prelight.png");
+  background-size: 100% 100%;
+  border-image: url("button-prelight.png") 3 3 3 3 stretch stretch;
+  border-color: @@SECONDARY@@;
+  background-gradient-direction: vertical;
+  background-gradient-start: rgba(255,255,255,.16);
+  background-gradient-end: rgba(0,0,0,.25);
+  box-shadow: inset 0 0 5px @@ACCENT_BG@@, inset 0 1px @@SECONDARY@@, inset 0 -1px @@ACCENT@@;
+}
+.panel-status-button, .panel-launcher, .applet-box {
+  color: @@TEXT@@;
+  border-image: url("button-normal.png") 3 3 3 3 stretch stretch;
+  transition-duration: 120;
+}
+.panel-status-button:hover, .panel-status-button:active, .panel-status-button:checked,
+.panel-launcher:hover, .panel-launcher:active,
+.applet-box:hover, .applet-box:active, .applet-box:checked {
+  color: @@ACCENT@@;
+  border-image: url("button-prelight.png") 3 3 3 3 stretch stretch;
+  box-shadow: inset 0 1px @@SECONDARY@@, inset 0 -1px @@ACCENT@@;
+}
+.applet-icon {
+  color: @@TEXT@@;
+  -st-icon-style: regular;
+  icon-size: 22px;
+  icon-shadow: rgba(0,0,0,.95) 0 1px 2px;
+}
+.applet-box:hover .applet-icon, .applet-box:checked .applet-icon,
+.panel-status-button:hover .system-status-icon {
+  color: @@ACCENT@@;
+  icon-shadow: @@SECONDARY@@ 0 0 3px;
+}
+.system-status-icon {
+  color: @@TEXT@@;
+  -st-icon-style: regular;
+  icon-size: 1.14em;
+  icon-shadow: rgba(0,0,0,.95) 0 1px 2px;
+}
+#panel StIcon, #panel .panel-status-button, #panel .applet-box {
+  -st-icon-style: regular;
+}
+.panel-corner { -panel-corner-radius: 0px; -panel-corner-background-color: @@PANEL@@; }
+
+.menu, .popup-menu-boxpointer, .popup-combo-menu, .popup-menu-content,
+.calendar, .dialog, .modal-dialog, .notification, .osd-window,
+.workspace-switcher-container, .switcher-list, .info-osd, #LookingGlassDialog {
+  color: @@TEXT@@;
+  background-color: rgba(8,8,12,.96);
+  background-gradient-direction: vertical;
+  background-gradient-start: @@SURFACE_ALT@@;
+  background-gradient-end: @@PANEL@@;
+  border: 1px solid @@ACCENT_DEEP@@;
+  border-radius: 3px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.85), inset 0 1px rgba(255,255,255,.10);
+}
+.popup-menu-content { padding: .55em 0; }
+.popup-menu-item { color: @@TEXT@@; padding: .45em 1.2em; spacing: .75em; border: 1px solid transparent; }
+.popup-menu-item:hover, .popup-menu-item:active, .popup-menu-item:checked,
+.menu-application-button-selected, .menu-category-button-selected, .menu-favorites-button:hover {
+  color: @@TEXT@@;
+  background-color: @@ACCENT_DEEP@@;
+  background-image: url("button-prelight.png");
+  background-size: 100% 100%;
+  border-image: url("button-prelight.png") 3 3 3 3 stretch stretch;
+  background-gradient-direction: horizontal;
+  background-gradient-start: @@ACCENT_BG@@;
+  background-gradient-end: @@ACCENT@@;
+  border-color: @@ACCENT@@;
+  box-shadow: inset 0 1px @@SECONDARY@@, inset 0 -1px @@ACCENT_SHADOW@@;
+}
+.popup-menu-item:insensitive { color: @@MUTED@@; }
+.popup-sub-menu { color: @@TEXT@@; background-color: rgba(0,0,0,.35); border-left: 2px solid @@ACCENT_DEEP@@; }
+.popup-separator-menu-item, .separator {
+  -gradient-height: 1px;
+  -gradient-start: @@ACCENT_DEEP@@;
+  -gradient-end: @@ACCENT@@;
+}
+.popup-menu-icon, .menu-application-button .menu-application-button-icon { color: @@ACCENT@@; }
+
+#menu-search-entry, #appmenu-search-entry, .run-dialog-entry,
+.prompt-dialog-password-entry, .expo-workspaces-name-entry {
+  color: @@TEXT@@;
+  background-color: @@PANEL@@;
+  border: 1px solid @@ACCENT_DEEP@@;
+  border-radius: 3px;
+  selection-background-color: @@ACCENT_BG@@;
+  selected-color: @@TEXT@@;
+  caret-color: @@ACCENT@@;
+}
+#menu-search-entry:focus, #appmenu-search-entry:focus, .run-dialog-entry:focus,
+.prompt-dialog-password-entry:focus, .expo-workspaces-name-entry:focus {
+  border-color: @@ACCENT@@;
+  box-shadow: inset 0 0 4px @@ACCENT_DEEP@@;
+}
+
+.dialog .dialog-button, .modal-dialog-button, .notification-button,
+.notification-icon-button, .sound-player StButton {
+  color: @@TEXT@@;
+  background-color: @@SURFACE_ALT@@;
+  background-gradient-direction: vertical;
+  background-gradient-start: #4b4b50;
+  background-gradient-end: #050506;
+  border: 1px solid #5d5d65;
+  border-radius: 3px;
+  box-shadow: inset 0 1px rgba(255,255,255,.14);
+}
+.dialog .dialog-button:hover, .modal-dialog-button:hover, .notification-button:hover,
+.notification-icon-button:hover, .sound-player StButton:hover {
+  color: @@TEXT@@;
+  border-color: @@SECONDARY@@;
+  background-gradient-start: @@ACCENT_BG@@;
+  background-gradient-end: @@ACCENT@@;
+  box-shadow: inset 0 1px @@SECONDARY@@, inset 0 -1px @@ACCENT_SHADOW@@;
+}
+.dialog .dialog-button:default { color: @@TEXT@@; background-color: @@ACCENT_BG@@; border-color: @@ACCENT@@; }
+.dialog .dialog-button:destructive-action { background-color: #8f1828; border-color: @@ATTENTION@@; }
+
+#Tooltip, .tooltip {
+  color: @@TEXT@@;
+  background-color: rgba(0,0,0,.96);
+  border: 1px solid @@ACCENT@@;
+  border-radius: 2px;
+  padding: 4px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.8);
+}
+.notification { border-left: 3px solid @@ACCENT@@; }
+.notification-title, .calendar-month-label, .datemenu-date-label { color: @@ACCENT@@; }
+.notification-body, .calendar-day-base, .datemenu-today-button { color: @@TEXT@@; }
+.notification-badge { color: @@TEXT@@; background-color: @@ATTENTION@@; }
+
+.calendar-day-base:hover, .calendar-day-base:focus, .calendar-day-base:selected,
+.calendar-today, .calendar-today:selected {
+  color: @@TEXT@@;
+  background-color: @@ACCENT_BG@@;
+  background-image: url("button-prelight.png");
+  background-size: 100% 100%;
+  border-color: @@ACCENT@@;
+}
+.calendar-day-base.calendar-day-heading, .calendar-work-day { color: @@TEXT@@; }
+.calendar-nonwork-day { color: @@SECONDARY@@; }
+.calendar-other-month-day { color: @@MUTED@@; }
+
+.slider, .popup-slider-menu-item {
+  -slider-background-color: #08080a;
+  -slider-border-color: #56565d;
+  -slider-active-background-color: @@ACCENT_BG@@;
+  -slider-active-border-color: @@ACCENT@@;
+  -slider-handle-radius: .55em;
+}
+StScrollBar StBin#trough { background-color: #08080a; border: 1px solid #3f3f46; border-radius: 2px; }
+StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
+  background-color: @@ACCENT_DEEP@@;
+  border: 1px solid @@ACCENT_BG@@;
+  border-image: url("slider-vert.png") 3 3 3 3 stretch stretch;
+  border-radius: 2px;
+}
+StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+  background-color: @@ACCENT_BG@@;
+  border-image: url("slider-vert-active.png") 3 3 3 3 stretch stretch;
+  border-color: @@ACCENT@@;
+  box-shadow: 0 0 4px @@ACCENT_BG@@;
+}
+
+.toggle-switch, .switch { color: @@ACCENT@@; }
+.check-box:checked, .radiobutton:checked { color: @@ACCENT@@; }
+.workspace-thumbnail-indicator, .workspace-thumbnail-indicator:active { border: 2px solid @@ACCENT@@; }
+.window-close, .window-close-area, .workspace-close-button { color: @@TEXT@@; background-color: @@ACCENT_BG@@; border: 1px solid @@ACCENT@@; }
+.window-close:hover, .workspace-close-button:hover { background-color: @@ATTENTION@@; }
+
+.expo-background, .overview-background { background-color: rgba(0,0,0,.72); }
+.expo-workspace-thumbnail-frame, .workspace-overview-background-shade { border-color: @@ACCENT_DEEP@@; }
+.switcher-list .item-box:selected, .switcher-list .item-box:outlined {
+  color: @@ACCENT@@;
+  background-color: @@ACCENT_DEEP@@;
+  background-image: url("button-prelight.png");
+  background-size: 100% 100%;
+  border: 2px solid @@ACCENT@@;
+}
+.switcher-arrow, .switcher-list .thumbnail-scroll-gradient-left,
+.switcher-list .thumbnail-scroll-gradient-right { color: @@ACCENT@@; }
+
+#LookingGlassDialog { color: @@TEXT@@; }
+#LookingGlassDialog StEntry { color: @@TEXT@@; background-color: @@PANEL@@; border: 1px solid @@ACCENT@@; }
+#LookingGlassDialog .lg-extension-state { color: @@ACCENT@@; }
+.magnifier-zoom-region { border: 2px solid @@ACCENT@@; }

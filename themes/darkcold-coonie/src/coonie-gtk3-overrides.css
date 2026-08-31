@@ -1,0 +1,81 @@
+/* Darkcold Coonie 2.2.1 dark-bisexual state layer.
+ * Kept separate from the upstream image renderer so GTK 3.20/3.24 receives
+ * the same purple/pink body and seagreen rim-light as the raster chrome. */
+
+@define-color coonie_purple #460087;
+@define-color coonie_purple_deep #260047;
+@define-color coonie_pink #ff4fbf;
+@define-color coonie_blue_shadow #17105f;
+@define-color coonie_sky #00a8ff;
+@define-color coonie_seagreen #00ffbf;
+
+row:selected,
+row:selected:focus,
+row:selected:hover,
+.cell:selected,
+.cell:selected:hover,
+iconview.view.cell:selected,
+iconview.view.cell:selected:focus,
+placessidebar row:selected,
+placessidebar row:selected:hover {
+  color: #ffffff;
+  background-color: @coonie_purple;
+  background-image: linear-gradient(to right,
+    @coonie_purple_deep 0%, @coonie_purple 24%, @coonie_pink 52%,
+    @coonie_purple 72%, @coonie_blue_shadow 84%, @coonie_seagreen 95%, @coonie_purple 100%);
+  border-color: @coonie_seagreen;
+}
+
+menuitem:hover,
+menuitem:focus,
+menuitem:checked,
+menuitem:active {
+  color: #ffffff;
+  background-color: @coonie_purple;
+  background-image: linear-gradient(to right,
+    @coonie_purple_deep, @coonie_purple 22%, @coonie_pink 50%,
+    @coonie_purple 72%, @coonie_blue_shadow 84%, @coonie_seagreen 95%, @coonie_purple);
+  box-shadow: inset 0 1px @coonie_pink, inset 0 -1px @coonie_seagreen;
+}
+
+entry:focus,
+treeview.view:focus,
+textview:focus {
+  border-color: @coonie_seagreen;
+  box-shadow: inset 0 0 0 1px @coonie_purple, 0 0 3px @coonie_pink;
+}
+
+progressbar progress,
+scale highlight,
+levelbar block.filled {
+  background-color: @coonie_purple;
+  background-image: linear-gradient(to right,
+    @coonie_purple_deep, @coonie_purple 25%, @coonie_pink 55%,
+    @coonie_purple 76%, @coonie_seagreen 96%, @coonie_purple);
+  border-color: @coonie_seagreen;
+}
+
+scrollbar slider {
+  background-color: @coonie_purple_deep;
+  background-image: linear-gradient(to right,
+    @coonie_purple_deep, @coonie_purple 36%, #8d007e 70%, @coonie_pink 88%, @coonie_purple);
+  border-color: @coonie_purple;
+  box-shadow: inset 0 1px @coonie_pink;
+}
+
+scrollbar slider:hover,
+scrollbar slider:active {
+  background-color: @coonie_purple;
+  background-image: linear-gradient(to right,
+    @coonie_purple_deep, @coonie_purple 28%, @coonie_pink 68%, @coonie_purple 91%, @coonie_seagreen);
+  border-color: @coonie_seagreen;
+  box-shadow: inset 0 1px @coonie_pink, 0 0 4px @coonie_purple;
+}
+
+notebook > header tab:checked {
+  color: @coonie_seagreen;
+  box-shadow: inset 0 -2px @coonie_pink, inset 0 -3px @coonie_purple;
+}
+
+*:link { color: @coonie_sky; }
+*:link:visited { color: @coonie_pink; }

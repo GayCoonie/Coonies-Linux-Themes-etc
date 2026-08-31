@@ -1,0 +1,88 @@
+/* Darkcold NG GTK 4 / libadwaita compatibility layer.
+ * Install is opt-in because libadwaita intentionally limits third-party theming. */
+@define-color accent_color #6ebefe;
+@define-color accent_bg_color #0d479f;
+@define-color accent_fg_color #f8fbff;
+@define-color window_bg_color #16181c;
+@define-color window_fg_color #f8fbff;
+@define-color view_bg_color #08090b;
+@define-color view_fg_color #f8fbff;
+@define-color headerbar_bg_color #08090b;
+@define-color headerbar_fg_color #f8fbff;
+@define-color headerbar_border_color #002e83;
+@define-color card_bg_color #25282e;
+@define-color card_fg_color #f8fbff;
+@define-color popover_bg_color #25282e;
+@define-color popover_fg_color #f8fbff;
+@define-color dialog_bg_color #16181c;
+@define-color dialog_fg_color #f8fbff;
+@define-color sidebar_bg_color #08090b;
+@define-color sidebar_fg_color #f8fbff;
+@define-color thumbnail_bg_color #08090b;
+@define-color shade_color rgba(0, 0, 0, .55);
+@define-color scrollbar_outline_color #002e83;
+
+/* Prefer the icon theme's full-color artwork throughout GTK 4/libadwaita. */
+* { -gtk-icon-style: regular; }
+
+window, dialog, popover { color: #f8fbff; background-color: #16181c; }
+popover > contents {
+  background: linear-gradient(to bottom, #25282e, #08090b 14px, #050507);
+  border: 1px solid #002e83;
+  border-radius: 0;
+  box-shadow: inset 0 1px rgba(255,255,255,.16), 0 5px 16px rgba(0,0,0,.85);
+}
+headerbar, .titlebar {
+  color: #f8fbff;
+  background-image:
+    linear-gradient(to right, #002e83 0%, #0d479f 24%, #2670cc 52%, #0d479f 72%, #032c70 84%, #6ebefe 95%, #0d479f 100%),
+    linear-gradient(to bottom, #56565a 0%, #25282e 46%, #050307 50%, #08090b 100%);
+  background-size: 100% 4px, 100% 100%;
+  background-position: left bottom, left top;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #6ebefe;
+  box-shadow: inset 0 1px rgba(255,255,255,.28), inset 0 -1px #2670cc;
+}
+button {
+  color: #f8fbff;
+  background: linear-gradient(to bottom, #4b4b4f 0%, #25282e 46%, #08080a 52%, #020203 100%);
+  border: 1px solid #56565d;
+  border-radius: 0;
+  box-shadow: inset 0 1px rgba(255,255,255,.12);
+}
+headerbar button.titlebutton { border-radius: 0; min-width: 24px; min-height: 20px; padding: 0; }
+headerbar button.titlebutton.minimize { border-color: #2670cc; background-color: #0d479f; }
+headerbar button.titlebutton.maximize { border-color: #6ebefe; background-color: #006b69; }
+headerbar button.titlebutton.close { border-color: #2670cc; background-color: #8f006f; }
+headerbar button.titlebutton.minimize:hover { background: linear-gradient(to right, #0d479f, #2670cc); }
+headerbar button.titlebutton.maximize:hover { background: linear-gradient(to right, #6ebefe, #00a8ff); }
+headerbar button.titlebutton.close:hover { background: linear-gradient(to right, #2670cc, #0d479f); }
+button:hover {
+  border-color: #6ebefe;
+  background: linear-gradient(to right, #002e83, #0d479f 24%, #2670cc 54%, #0d479f 74%, #032c70 84%, #6ebefe 95%, #0d479f);
+  box-shadow: inset 0 1px #2670cc, inset 0 -1px #6ebefe;
+}
+button:checked, button:active, selection {
+  color: #f8fbff;
+  background: linear-gradient(to right, #002e83, #0d479f 24%, #2670cc 54%, #0d479f 74%, #032c70 84%, #6ebefe 95%, #0d479f);
+}
+entry, textview, treeview.view, listview, columnview { color: #f8fbff; background-color: #08090b; }
+entry { border: 1px solid #002e83; border-radius: 0; }
+entry:focus { border-color: #6ebefe; box-shadow: inset 0 0 0 1px #0d479f; }
+scrollbar slider {
+  background: linear-gradient(to right, #002e83, #0d479f 44%, #2670cc 72%, #0d479f 90%, #032c70);
+  border: 1px solid #0d479f;
+  box-shadow: inset 0 1px #2670cc;
+  min-width: 8px;
+  min-height: 8px;
+}
+scrollbar slider:hover, scrollbar slider:active {
+  border-color: #6ebefe;
+  box-shadow: inset 0 1px #2670cc, 0 0 4px #0d479f;
+}
+switch:checked, progressbar progress, scale highlight {
+  background: linear-gradient(to right, #002e83, #0d479f 25%, #2670cc 55%, #0d479f 76%, #6ebefe 96%, #0d479f);
+  color: #f8fbff;
+}
+separator { background-color: #002e83; min-width: 1px; min-height: 1px; }
+link { color: #6ebefe; }

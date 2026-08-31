@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#20242a"/><stop offset="1" stop-color="#050507"/></linearGradient>
+    <linearGradient id="coldPanel" x2="0" y2="1"><stop stop-color="#30343a"/><stop offset=".55" stop-color="#101216"/><stop offset="1"/></linearGradient>
+    <linearGradient id="coonPanel" x2="0" y2="1"><stop stop-color="#25172f"/><stop offset=".55" stop-color="#100919"/><stop offset="1" stop-color="#020103"/></linearGradient>
+    <linearGradient id="coldButton" x2="0" y2="1"><stop stop-color="#16609e"/><stop offset=".55" stop-color="#032c70"/><stop offset="1" stop-color="#0851b8"/></linearGradient>
+    <linearGradient id="coonSpectrum"><stop stop-color="#190025"/><stop offset=".18" stop-color="#2d004f"/><stop offset=".38" stop-color="#460087"/><stop offset=".58" stop-color="#8d007e"/><stop offset=".73" stop-color="#ff4fbf"/><stop offset=".84" stop-color="#460087"/><stop offset=".91" stop-color="#17105f"/><stop offset=".97" stop-color="#00ffbf"/><stop offset="1" stop-color="#460087"/></linearGradient>
+    <linearGradient id="coonButton" x2="0" y2="1"><stop stop-color="#260047"/><stop offset=".28" stop-color="#460087"/><stop offset=".62" stop-color="#ff4fbf"/><stop offset=".88" stop-color="#460087"/><stop offset=".97" stop-color="#00ffbf"/><stop offset="1" stop-color="#460087"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#08090d"/>
+  <text x="80" y="92" fill="#fff" font-family="sans-serif" font-weight="700" font-size="48">DARKCOLD, RESURRECTED</text>
+  <text x="80" y="137" fill="#a9b8c7" font-family="sans-serif" font-size="23">Cinnamon 6.0–6.6+ · GTK 2/3/4 · Muffin · Belligerent Madness</text>
+
+  <g transform="translate(80 190)">
+    <rect width="680" height="590" rx="8" fill="url(#bg)" stroke="#0d479f" stroke-width="2"/>
+    <rect width="680" height="54" rx="8" fill="url(#coldPanel)" stroke="#6ebefe"/>
+    <circle cx="30" cy="27" r="9" fill="#6ebefe"/><text x="54" y="35" fill="#f8fbff" font-family="sans-serif" font-weight="700" font-size="22">Darkcold NG</text>
+    <text x="560" y="35" fill="#6ebefe" font-family="sans-serif" font-size="17">13:37</text>
+    <rect x="34" y="92" width="612" height="196" rx="4" fill="#101216" stroke="#0d479f"/>
+    <rect x="34" y="92" width="612" height="38" fill="url(#coldPanel)"/><text x="52" y="118" fill="#6ebefe" font-family="sans-serif" font-size="18">Applications</text>
+    <rect x="52" y="151" width="238" height="44" rx="2" fill="url(#coldButton)" stroke="#11b8ff"/><text x="70" y="180" fill="#fff" font-family="sans-serif" font-size="18">Selected cold thing</text>
+    <text x="70" y="225" fill="#f8fbff" font-family="sans-serif" font-size="18">A normal dark thing</text>
+    <text x="70" y="261" fill="#a9b8c7" font-family="sans-serif" font-size="16">Ancient glass, modern selectors</text>
+    <rect x="34" y="322" width="612" height="190" rx="4" fill="#16181c" stroke="#3f3f46"/>
+    <text x="58" y="363" fill="#f8fbff" font-family="sans-serif" font-size="23">Belligerent Madness</text>
+    <rect x="58" y="393" width="355" height="44" rx="3" fill="#08090b" stroke="#6ebefe"/><text x="73" y="422" fill="#f8fbff" font-family="sans-serif" font-size="17">A textbox glaring into the void</text>
+    <rect x="450" y="393" width="160" height="44" rx="3" fill="url(#coldButton)" stroke="#6ebefe"/><text x="495" y="422" fill="#fff" font-family="sans-serif" font-weight="700" font-size="17">Awoo</text>
+    <rect x="58" y="466" width="552" height="8" rx="4" fill="#050506"/><rect x="58" y="466" width="372" height="8" rx="4" fill="#0d479f"/>
+  </g>
+
+  <g transform="translate(840 190)">
+    <rect width="680" height="590" rx="3" fill="#08060d" stroke="#00ffbf" stroke-width="2"/>
+    <rect width="680" height="54" rx="3" fill="url(#coonPanel)" stroke="#ff4fbf"/>
+    <rect y="47" width="680" height="6" fill="url(#coonSpectrum)"/>
+    <circle cx="30" cy="27" r="9" fill="#00ffbf"/><text x="54" y="35" fill="#fff" font-family="sans-serif" font-weight="700" font-size="22">Darkcold Coonie</text>
+    <text x="510" y="35" fill="#00ffbf" font-family="sans-serif" font-size="17">:3</text>
+    <rect x="555" y="12" width="34" height="28" fill="#460087" stroke="#ff4fbf"/><path d="M564 31h16" stroke="#fff" stroke-width="3"/>
+    <rect x="594" y="12" width="34" height="28" fill="#006b69" stroke="#00ffbf"/><rect x="603" y="19" width="16" height="13" fill="none" stroke="#fff" stroke-width="2"/>
+    <rect x="633" y="12" width="34" height="28" fill="#8f006f" stroke="#ff4fbf"/><path d="m643 20 14 13m0-13-14 13" stroke="#fff" stroke-width="3"/>
+    <rect x="34" y="92" width="612" height="196" rx="4" fill="#100919" stroke="#460087"/>
+    <rect x="34" y="92" width="612" height="38" fill="url(#coonPanel)"/><text x="52" y="118" fill="#00ffbf" font-family="sans-serif" font-size="18">Critters &amp; Workings</text>
+    <rect x="52" y="151" width="268" height="44" rx="2" fill="url(#coonSpectrum)" stroke="#00ffbf"/><line x1="53" y1="153" x2="319" y2="153" stroke="#ff4fbf"/><text x="70" y="180" fill="#fff" font-family="sans-serif" font-size="18">Selected weird little guy</text>
+    <text x="70" y="225" fill="#fff" font-family="sans-serif" font-size="18">Purple thing, naturally</text>
+    <text x="70" y="261" fill="#ff4fbf" font-family="sans-serif" font-size="16">Composed-but-aptly-chaotic</text>
+    <rect x="34" y="322" width="612" height="190" rx="4" fill="#17111f" stroke="#460087"/>
+    <text x="58" y="363" fill="#00ffbf" font-family="sans-serif" font-size="23">Belligerent Madness</text>
+    <rect x="58" y="393" width="355" height="44" rx="3" fill="#08060d" stroke="#00ffbf"/><text x="73" y="422" fill="#fff" font-family="sans-serif" font-size="17">The seagreen caret lives here</text>
+    <rect x="450" y="393" width="160" height="44" rx="3" fill="url(#coonButton)" stroke="#00ffbf"/><text x="495" y="422" fill="#fff" font-family="sans-serif" font-weight="700" font-size="17">Awoo</text>
+    <rect x="58" y="466" width="552" height="8" rx="4" fill="#050306"/><rect x="58" y="466" width="372" height="8" rx="4" fill="url(#coonSpectrum)"/><circle cx="430" cy="470" r="10" fill="#ff4fbf" stroke="#fff"/>
+  </g>
+  <text x="800" y="845" text-anchor="middle" fill="#c9b8da" font-family="sans-serif" font-size="18">Original DarkCold machinery · renewed without sanding off the old weirdness</text>
+</svg>

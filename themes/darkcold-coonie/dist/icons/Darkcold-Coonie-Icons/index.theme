@@ -1,0 +1,6 @@
+[Icon Theme]
+Name=Darkcold-Coonie-Icons
+Comment=Icon inheritance layer coordinated with Darkcold Coonie — Purple & Seagreen
+Inherits=Mint-Y-Purple,Mint-Y-Dark,Adwaita,hicolor
+Directories=
+Hidden=false

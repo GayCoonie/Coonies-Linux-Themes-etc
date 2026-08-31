@@ -1,0 +1,6 @@
+[Icon Theme]
+Name=Darkcold-NG-Icons
+Comment=Icon inheritance layer coordinated with Darkcold NG
+Inherits=Mint-Y-Dark,Adwaita,hicolor
+Directories=
+Hidden=false

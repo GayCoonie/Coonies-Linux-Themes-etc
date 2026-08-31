@@ -1,0 +1,21 @@
+name: Validate theme
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install --disable-pip-version-check pillow==12.3.0
+      - run: ./tools/build.py --clean
+      - run: ./tools/test.sh
+      - run: ./tools/package.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darkcold-coonie-theme
+          path: |
+            darkcold-coonie-theme-2.2.2.tar.gz
+            darkcold-coonie-theme-2.2.2.zip

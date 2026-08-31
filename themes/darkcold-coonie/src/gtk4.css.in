@@ -1,0 +1,88 @@
+/* Darkcold NG GTK 4 / libadwaita compatibility layer.
+ * Install is opt-in because libadwaita intentionally limits third-party theming. */
+@define-color accent_color @@ACCENT@@;
+@define-color accent_bg_color @@ACCENT_BG@@;
+@define-color accent_fg_color @@TEXT@@;
+@define-color window_bg_color @@SURFACE@@;
+@define-color window_fg_color @@TEXT@@;
+@define-color view_bg_color @@PANEL@@;
+@define-color view_fg_color @@TEXT@@;
+@define-color headerbar_bg_color @@PANEL@@;
+@define-color headerbar_fg_color @@TEXT@@;
+@define-color headerbar_border_color @@ACCENT_DEEP@@;
+@define-color card_bg_color @@SURFACE_ALT@@;
+@define-color card_fg_color @@TEXT@@;
+@define-color popover_bg_color @@SURFACE_ALT@@;
+@define-color popover_fg_color @@TEXT@@;
+@define-color dialog_bg_color @@SURFACE@@;
+@define-color dialog_fg_color @@TEXT@@;
+@define-color sidebar_bg_color @@PANEL@@;
+@define-color sidebar_fg_color @@TEXT@@;
+@define-color thumbnail_bg_color @@PANEL@@;
+@define-color shade_color rgba(0, 0, 0, .55);
+@define-color scrollbar_outline_color @@ACCENT_DEEP@@;
+
+/* Prefer the icon theme's full-color artwork throughout GTK 4/libadwaita. */
+* { -gtk-icon-style: regular; }
+
+window, dialog, popover { color: @@TEXT@@; background-color: @@SURFACE@@; }
+popover > contents {
+  background: linear-gradient(to bottom, @@SURFACE_ALT@@, @@PANEL@@ 14px, #050507);
+  border: 1px solid @@ACCENT_DEEP@@;
+  border-radius: 0;
+  box-shadow: inset 0 1px rgba(255,255,255,.16), 0 5px 16px rgba(0,0,0,.85);
+}
+headerbar, .titlebar {
+  color: @@TEXT@@;
+  background-image:
+    linear-gradient(to right, @@ACCENT_DEEP@@ 0%, @@ACCENT_BG@@ 24%, @@SECONDARY@@ 52%, @@ACCENT_BG@@ 72%, @@ACCENT_SHADOW@@ 84%, @@ACCENT@@ 95%, @@ACCENT_BG@@ 100%),
+    linear-gradient(to bottom, #56565a 0%, @@SURFACE_ALT@@ 46%, #050307 50%, @@PANEL@@ 100%);
+  background-size: 100% 4px, 100% 100%;
+  background-position: left bottom, left top;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid @@ACCENT@@;
+  box-shadow: inset 0 1px rgba(255,255,255,.28), inset 0 -1px @@SECONDARY@@;
+}
+button {
+  color: @@TEXT@@;
+  background: linear-gradient(to bottom, #4b4b4f 0%, @@SURFACE_ALT@@ 46%, #08080a 52%, #020203 100%);
+  border: 1px solid #56565d;
+  border-radius: 0;
+  box-shadow: inset 0 1px rgba(255,255,255,.12);
+}
+headerbar button.titlebutton { border-radius: 0; min-width: 24px; min-height: 20px; padding: 0; }
+headerbar button.titlebutton.minimize { border-color: @@SECONDARY@@; background-color: @@ACCENT_BG@@; }
+headerbar button.titlebutton.maximize { border-color: @@ACCENT@@; background-color: #006b69; }
+headerbar button.titlebutton.close { border-color: @@SECONDARY@@; background-color: #8f006f; }
+headerbar button.titlebutton.minimize:hover { background: linear-gradient(to right, @@ACCENT_BG@@, @@SECONDARY@@); }
+headerbar button.titlebutton.maximize:hover { background: linear-gradient(to right, @@ACCENT@@, #00a8ff); }
+headerbar button.titlebutton.close:hover { background: linear-gradient(to right, @@SECONDARY@@, @@ACCENT_BG@@); }
+button:hover {
+  border-color: @@ACCENT@@;
+  background: linear-gradient(to right, @@ACCENT_DEEP@@, @@ACCENT_BG@@ 24%, @@SECONDARY@@ 54%, @@ACCENT_BG@@ 74%, @@ACCENT_SHADOW@@ 84%, @@ACCENT@@ 95%, @@ACCENT_BG@@);
+  box-shadow: inset 0 1px @@SECONDARY@@, inset 0 -1px @@ACCENT@@;
+}
+button:checked, button:active, selection {
+  color: @@TEXT@@;
+  background: linear-gradient(to right, @@ACCENT_DEEP@@, @@ACCENT_BG@@ 24%, @@SECONDARY@@ 54%, @@ACCENT_BG@@ 74%, @@ACCENT_SHADOW@@ 84%, @@ACCENT@@ 95%, @@ACCENT_BG@@);
+}
+entry, textview, treeview.view, listview, columnview { color: @@TEXT@@; background-color: @@PANEL@@; }
+entry { border: 1px solid @@ACCENT_DEEP@@; border-radius: 0; }
+entry:focus { border-color: @@ACCENT@@; box-shadow: inset 0 0 0 1px @@ACCENT_BG@@; }
+scrollbar slider {
+  background: linear-gradient(to right, @@ACCENT_DEEP@@, @@ACCENT_BG@@ 44%, @@SECONDARY@@ 72%, @@ACCENT_BG@@ 90%, @@ACCENT_SHADOW@@);
+  border: 1px solid @@ACCENT_BG@@;
+  box-shadow: inset 0 1px @@SECONDARY@@;
+  min-width: 8px;
+  min-height: 8px;
+}
+scrollbar slider:hover, scrollbar slider:active {
+  border-color: @@ACCENT@@;
+  box-shadow: inset 0 1px @@SECONDARY@@, 0 0 4px @@ACCENT_BG@@;
+}
+switch:checked, progressbar progress, scale highlight {
+  background: linear-gradient(to right, @@ACCENT_DEEP@@, @@ACCENT_BG@@ 25%, @@SECONDARY@@ 55%, @@ACCENT_BG@@ 76%, @@ACCENT@@ 96%, @@ACCENT_BG@@);
+  color: @@TEXT@@;
+}
+separator { background-color: @@ACCENT_DEEP@@; min-width: 1px; min-height: 1px; }
+link { color: @@ACCENT@@; }

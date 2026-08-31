@@ -1,0 +1,6 @@
+[Icon Theme]
+Name=@@ICON@@
+Comment=Icon inheritance layer coordinated with @@DISPLAY@@
+Inherits=@@ICON_INHERITS@@
+Directories=
+Hidden=false

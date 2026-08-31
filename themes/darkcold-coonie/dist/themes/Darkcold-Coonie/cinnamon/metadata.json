@@ -1,0 +1,11 @@
+{
+  "uuid": "Darkcold-Coonie",
+  "name": "Darkcold Coonie \u2014 Purple & Seagreen",
+  "description": "DarkCold rebuilt for Cinnamon 6.0\u20136.6+",
+  "cinnamon-version": [
+    "6.0",
+    "6.2",
+    "6.4",
+    "6.6"
+  ]
+}

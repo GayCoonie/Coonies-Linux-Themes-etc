@@ -1,0 +1,22 @@
+Darkcold terminal palette for @@DISPLAY@@
+
+background = @@PANEL@@
+foreground = @@TEXT@@
+cursor     = @@ACCENT@@
+selection  = @@ACCENT_BG@@
+black      = #08080a
+red        = #d94f64
+green      = #55d98a
+yellow     = #e4c65a
+blue       = @@ACCENT_HOT@@
+magenta    = @@SECONDARY@@
+cyan       = @@ACCENT@@
+white      = #d8d8dc
+bright-black   = #575760
+bright-red     = #ff7186
+bright-green   = #78f0aa
+bright-yellow  = #ffe27a
+bright-blue    = #6ebefe
+bright-magenta = #ff79cf
+bright-cyan    = #79ffdd
+bright-white   = #ffffff

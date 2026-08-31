@@ -1,0 +1,11 @@
+Package: coonie-aero-hoard-icon-theme
+Version: 1.1.2
+Section: x11
+Priority: optional
+Architecture: all
+Maintainer: Coonie/Adam
+Depends: hicolor-icon-theme
+Suggests: adwaita-icon-theme
+Description: maximal Y2K and Frutiger-aero icon theme
+ A deliberately colorful mosaic of Crystal, Oxygen, NuoveXT, GNOME Colors,
+ Newaita, and Papirus coverage for Cinnamon, GNOME, and freedesktop desktops.

@@ -1,0 +1,22 @@
+Darkcold terminal palette for Darkcold NG
+
+background = #08090b
+foreground = #f8fbff
+cursor     = #6ebefe
+selection  = #0d479f
+black      = #08080a
+red        = #d94f64
+green      = #55d98a
+yellow     = #e4c65a
+blue       = #11b8ff
+magenta    = #2670cc
+cyan       = #6ebefe
+white      = #d8d8dc
+bright-black   = #575760
+bright-red     = #ff7186
+bright-green   = #78f0aa
+bright-yellow  = #ffe27a
+bright-blue    = #6ebefe
+bright-magenta = #ff79cf
+bright-cyan    = #79ffdd
+bright-white   = #ffffff

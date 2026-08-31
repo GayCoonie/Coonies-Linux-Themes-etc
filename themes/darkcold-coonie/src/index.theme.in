@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=@@DISPLAY@@
+Comment=DarkCold rebuilt for Cinnamon 6.0 through 6.6 and later
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=@@NAME@@
+MetacityTheme=@@NAME@@
+IconTheme=@@ICON@@
+CursorTheme=DMZ-White
+ButtonLayout=menu:minimize,maximize,close
+
+[X-Cinnamon-Metatheme]
+GtkTheme=@@NAME@@
+MetacityTheme=@@NAME@@
+IconTheme=@@ICON@@
+CinnamonTheme=@@NAME@@

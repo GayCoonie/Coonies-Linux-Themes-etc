@@ -1,0 +1,6 @@
+tools/dart-sass/
+__pycache__/
+*.pyc
+*.tar.gz
+*.zip
+.rsync-tmp/

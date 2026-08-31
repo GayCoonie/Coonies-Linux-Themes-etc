@@ -1,0 +1,12 @@
+/* Optional Firefox chrome accents. Enable toolkit.legacyUserProfileCustomizations.stylesheets. */
+:root {
+  --dc-accent: #00ffbf;
+  --dc-accent-bg: #460087;
+  --dc-panel: #08060d;
+  --dc-surface: #17111f;
+  --dc-text: #ffffff;
+}
+#navigator-toolbox, #TabsToolbar, #nav-bar, #PersonalToolbar { background: var(--dc-panel) !important; color: var(--dc-text) !important; }
+.tab-background[selected] { background: linear-gradient(var(--dc-accent-bg), var(--dc-panel)) !important; box-shadow: inset 0 2px var(--dc-accent) !important; }
+#urlbar-background, #searchbar { background: var(--dc-surface) !important; border-color: var(--dc-accent-bg) !important; }
+#urlbar[focused] > #urlbar-background { border-color: var(--dc-accent) !important; box-shadow: 0 0 0 1px var(--dc-accent-bg) !important; }
