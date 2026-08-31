@@ -14,6 +14,7 @@
 - The Aero Hoard source kit requires its curated donor repositories to rebuild all 115,933 installed icon files. Those donor checkouts are not embedded here.
 - No live Linux Mint 21.3 Cinnamon/Nemo session was available during repository assembly, so static checks do not replace runtime visual verification.
 - Nemo's huge-icon regression remains a required runtime witness across icon, compact, and list views.
+- GitHub currently reports workflow `startup_failure`/`BuildFailed` before allocating any job. The workflow is preserved, and both of its commands pass locally; repository/account Actions enablement or billing policy must be checked before remote CI can run.
 
 ## Next useful work
 
