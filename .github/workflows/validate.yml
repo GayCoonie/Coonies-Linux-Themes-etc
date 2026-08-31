@@ -13,4 +13,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 scripts/validate_repository.py
-      - run: bash themes/darkcold-coonie/tools/test.sh
+      - name: Test the complete DarkCold release witness
+        run: |
+          mkdir -p /tmp/darkcold-release-test
+          tar -xzf releases/darkcold/darkcold-coonie-theme-2.2.2.tar.gz -C /tmp/darkcold-release-test
+          bash /tmp/darkcold-release-test/darkcold-coonie-theme/tools/test.sh
