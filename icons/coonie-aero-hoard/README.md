@@ -72,7 +72,7 @@ The build is reproducible once the source repositories are present beside this
 project in `../sources`:
 
 ```bash
-./scripts/build-release.sh
+./scripts/rebuild-from-donors.sh
 ```
 
 Every installed icon has a row in `manifest/icons.jsonl`, including its donor,

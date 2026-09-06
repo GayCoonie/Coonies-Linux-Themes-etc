@@ -16,3 +16,9 @@ For every visual change:
 6. Record untested runtime surfaces honestly.
 
 Do not silently replace full-color panel or file-manager artwork with symbolic glyphs. Do not let active purple/multicolor states drift back to generic dark blue. Do not assume a GTK theme includes Cinnamon shell or Muffin decoration. Do not treat syntactic validity as proof of visual correctness.
+
+## Source completeness and incremental updates
+
+Actual artwork, font files, cursor binaries, aliases and license notices belong in the live component trees. Ordinary validation, install and packaging must not depend on a release archive or an absent donor checkout. Do not reduce source coverage to make review smaller.
+
+For icon edits, update the associated per-directory provenance records and run the actual-file validator. For connector updates, use binary blobs as needed, a tree based on the current tree, a commit with the current parent, and a non-forced branch update. Verify the remote commit; a local edit or unreferenced blob alone is not a saved branch update.

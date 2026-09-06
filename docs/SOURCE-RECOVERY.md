@@ -34,3 +34,9 @@ Install icons with `bash icons/coonie-aero-hoard/install.sh --user`; it preserve
 For repository rollback, the starting commit above retains the previous state. Use a separate checkout or a normal revert when needed; no force-push or history rewrite is required.
 
 The source recovery makes no visual redesign. Linux Mint 21.3/Cinnamon/Nemo visual behavior was not exercised; the existing runtime regression list remains authoritative for that follow-up.
+
+## Executed validation
+
+GitHub import run https://github.com/GayCoonie/Coonies-Linux-Themes-etc/actions/runs/34004890192 passed all recovery gates and committed the full source tree as `2d1d6037e0bd05ffe899201e6789958f256b97d6`. That job independently verified the 115,933 artwork hashes, indexed directories, DarkCold structural/install/uninstall behavior, image formats, and GTK icon-cache generation on Ubuntu with Python 3.12/Pillow 12.3.0.
+
+The local source packaging test also produced a complete portable package and a Debian package accepted by `dpkg-deb --info`. The source tree, rather than those test packages, is the delivered result.
