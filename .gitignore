@@ -7,3 +7,5 @@ __pycache__/
 .cache/
 build/
 work/
+icon-theme.cache
+icons/coonie-aero-hoard/dist/

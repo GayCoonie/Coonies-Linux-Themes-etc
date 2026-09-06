@@ -1,107 +1,76 @@
 #!/usr/bin/env python3
-"""Non-installing structural checks for the theming ecology repository."""
-
-from __future__ import annotations
-
+"""Validate actual checkout assets; no release archives or summary proxies."""
 import configparser
+import hashlib
 import json
 import sys
-import tarfile
-import zipfile
 from pathlib import Path
-
-
 ROOT = Path(__file__).resolve().parents[1]
-ERRORS: list[str] = []
-
-
-def require(path: str) -> Path:
-    candidate = ROOT / path
-    if not candidate.exists():
-        ERRORS.append(f"missing: {path}")
-    return candidate
-
-
-def check_archive(path: Path) -> None:
-    if not path.is_file():
-        return
-    try:
-        if path.suffix == ".zip":
-            with zipfile.ZipFile(path) as archive:
-                bad = archive.testzip()
-                if bad:
-                    ERRORS.append(f"corrupt member in {path.relative_to(ROOT)}: {bad}")
-        else:
-            with tarfile.open(path):
-                pass
-    except (OSError, tarfile.TarError, zipfile.BadZipFile) as exc:
-        ERRORS.append(f"archive error in {path.relative_to(ROOT)}: {exc}")
-
-
-def check_index_theme(path: Path) -> None:
-    if not path.is_file():
-        return
-    parser = configparser.ConfigParser(interpolation=None, strict=False)
-    try:
-        parser.read(path, encoding="utf-8")
-    except (OSError, configparser.Error) as exc:
-        ERRORS.append(f"invalid index.theme {path.relative_to(ROOT)}: {exc}")
-        return
-    if not parser.has_section("Icon Theme"):
-        ERRORS.append(f"missing [Icon Theme] in {path.relative_to(ROOT)}")
-
-
-def main() -> int:
-    required = [
-        "README.md",
-        "AGENTS.md",
-        "docs/PROJECT-CUSTOM-INSTRUCTIONS.md",
-        "themes/darkcold-coonie/README.md",
-        "themes/darkcold-coonie/tools/test.sh",
-        "icons/coonie-aero-hoard/README.md",
-        "icons/coonie-aero-hoard/scripts/build_theme.py",
-        "cursors/coonie-aero-gel-v1/Coonie-Aero-Gel/index.theme",
-        "cursors/coonie-aero-gel-v1/source-build/build.py",
-        "userstyles/Coonieglass-ChatGPT.user.css",
-        "skills/maintain-linux-theme-ecologies/SKILL.md",
-    ]
-    for item in required:
-        require(item)
-
-    for archive in sorted((ROOT / "releases").rglob("*")):
-        if archive.is_file() and (archive.name.endswith((".tar.gz", ".tar.xz", ".zip"))):
-            check_archive(archive)
-
-    for index_theme in sorted(ROOT.rglob("index.theme")):
-        relative_parts = index_theme.relative_to(ROOT).parts
-        if "icons" in relative_parts or "cursors" in relative_parts:
-            check_index_theme(index_theme)
-
-    summary = require("releases/icons/Coonie-Aero-Hoard-1.1.2-summary.json")
-    if summary.is_file():
-        try:
-            data = json.loads(summary.read_text(encoding="utf-8"))
-            if data.get("installed_icon_files", 0) < 100_000:
-                ERRORS.append("Aero Hoard summary unexpectedly reports fewer than 100,000 icons")
-        except (OSError, json.JSONDecodeError) as exc:
-            ERRORS.append(f"invalid Aero Hoard summary: {exc}")
-
-    usercss = require("userstyles/Coonieglass-ChatGPT.user.css")
-    if usercss.is_file() and "==UserStyle==" not in usercss.read_text(encoding="utf-8", errors="replace"):
-        ERRORS.append("Coonieglass file lacks a UserStyle metadata block")
-
-    cursor_dir = require("cursors/coonie-aero-gel-v1/Coonie-Aero-Gel/cursors")
-    if cursor_dir.is_dir() and len(list(cursor_dir.iterdir())) < 60:
-        ERRORS.append("cursor alias set is unexpectedly small")
-
-    if ERRORS:
-        print("Repository validation failed:")
-        for error in ERRORS:
-            print(f"- {error}")
+def validate():
+    errors = []
+    def require(relative):
+        p = ROOT / relative
+        if not p.is_file() or not p.stat().st_size:
+            errors.append(f'Missing or empty: {relative}')
+        return p
+    for p in ['README.md', 'AGENTS.md', 'docs/COMPONENT-MATRIX.md',
+              'themes/darkcold-coonie/assets/fonts/BelligerentMadness-Regular.ttf',
+              'themes/darkcold-coonie/tools/build.py',
+              'icons/coonie-aero-hoard/scripts/build-release.sh',
+              'cursors/coonie-aero-gel-v1/source-build/build.py']:
+        require(p)
+    theme = ROOT / 'icons/coonie-aero-hoard/Coonie-Aero-Hoard'
+    index = require(str(theme.relative_to(ROOT) / 'index.theme'))
+    cfg = configparser.ConfigParser(interpolation=None, strict=False)
+    cfg.read(index)
+    if not cfg.has_section('Icon Theme'):
+        errors.append('Icon index lacks [Icon Theme]')
+    else:
+        for d in cfg['Icon Theme'].get('Directories', '').split(','):
+            if d and (not (theme / d).is_dir() or not cfg.has_section(d)):
+                errors.append(f'Missing indexed icon directory or metadata: {d}')
+    rows = [json.loads(line) for p in sorted((theme / 'manifest/icons').rglob('*.jsonl'))
+            for line in p.read_text().splitlines()]
+    paths = set()
+    for row in rows:
+        relative = Path(row['path'])
+        if relative.is_absolute() or '..' in relative.parts:
+            errors.append(f'Unsafe icon path: {relative}')
+            continue
+        if row['path'] in paths:
+            errors.append(f'Duplicate manifest path: {relative}')
+        paths.add(row['path'])
+        p = theme / relative
+        if not p.is_file():
+            errors.append(f'Missing artwork: {relative}')
+        elif hashlib.sha256(p.read_bytes()).hexdigest() != row['sha256']:
+            errors.append(f'Artwork checksum differs from manifest: {relative}')
+    actual = {str(p.relative_to(theme)) for p in theme.rglob('*')
+              if p.suffix.lower() in {'.png', '.svg', '.xpm'} and p.is_file()}
+    if len(rows) < 115933:
+        errors.append(f'Incomplete manifest: {len(rows)} entries; recovery baseline is 115933')
+    if actual != paths:
+        errors.append(f'Artwork/manifest difference: {len(actual - paths)} unrecorded, {len(paths - actual)} absent')
+    for layer in ['Darkcold-NG', 'Darkcold-Coonie']:
+        for path in ['cinnamon/button-normal.png', 'cinnamon/cinnamon.css',
+                     'metacity-1/button-close-focused.png', 'metacity-1/metacity-theme-3.xml',
+                     'gtk-2.0/gtkrc', 'gtk-3.20/gtk.css',
+                     'gtk-3.20/darkelements/titlebar/buttons/button-close-focused.png', 'gtk-4.0/gtk.css']:
+            require(f'themes/darkcold-coonie/dist/themes/{layer}/{path}')
+    cursor = ROOT / 'cursors/coonie-aero-gel-v1/Coonie-Aero-Gel/cursors'
+    if not cursor.is_dir() or len(list(cursor.iterdir())) < 60:
+        errors.append('Incomplete cursor role/alias set')
+    for p in cursor.glob('*'):
+        if not p.exists():
+            errors.append(f'Broken cursor alias: {p.name}')
+    usercss = require('userstyles/Coonieglass-ChatGPT.user.css')
+    if usercss.is_file() and '==UserStyle==' not in usercss.read_text():
+        errors.append('Missing UserStyle metadata')
+    if errors:
+        print('\n'.join(errors[:40]), file=sys.stderr)
+        print(f'FAILED: {len(errors)} errors', file=sys.stderr)
         return 1
-    print("Repository validation passed.")
+    print(f'PASS: {len(actual):,} actual icons match provenance; DarkCold assets and cursor aliases exist.')
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == '__main__':
+    sys.exit(validate())

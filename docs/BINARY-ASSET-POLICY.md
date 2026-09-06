@@ -1,11 +1,9 @@
-# Binary Asset Policy
+# Source asset policy
 
-The repository keeps exact portable release archives so a working package is never reconstructed from partial Git history.
+The working Git tree contains the actual artwork, fonts, cursor files, CSS, metadata, aliases, scripts and licenses required to maintain and install the themes. Binary images are first-class source assets, not optional release baggage.
 
-DarkCold's browsable tree includes its code, CSS/SCSS, XML, SVG, metadata, tests, and documentation. Its 1,000+ generated or inherited raster assets and font binary remain complete in both 2.2.2 release archives under `releases/darkcold/`; this avoids turning ordinary source review into a wall of opaque blobs while preserving the exact installable payload.
+Do not replace artwork with a reconstruction recipe, checksum, preview or a statement that it exists elsewhere. A fresh checkout must work without unpacking a release archive or fetching an untracked donor tree.
 
-Coonie Aero Gel keeps its reproducible source atlases and builder browsable, with the complete installable Xcursor tree in `releases/cursors/Coonie-Aero-Gel-v1.tar.gz`.
+Release archives are optional historical witnesses and distribution products. Their per-file size restrictions do not justify omitting the ordinary PNG/SVG/XPM files they contain. Preserve upstream attribution and licenses. Keep intentionally distinct paths even when Git internally deduplicates identical blobs.
 
-Coonie's Aero Hoard is different: its complete install archive and Debian package each exceed GitHub's 100 MB per-file limit. Git therefore keeps the reproducible source/packaging kit, audit, preview, summary, and checksum ledger. See `docs/RELEASES.md` for the recorded Library-held binaries.
-
-Do not unpack generated binary forests into Git merely to increase file count. Add browsable source when it materially helps maintenance; add exact releases when they are necessary for reproduction or rollback; use Git LFS or GitHub Releases for future oversized artifacts.
+For future updates, commit changed assets through connector blob/tree/commit/ref operations or an already-authorized Git workflow, and verify the remote commit. A local change or returned blob SHA alone is not a saved branch update.

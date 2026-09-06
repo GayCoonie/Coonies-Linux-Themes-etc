@@ -180,11 +180,14 @@ def main() -> None:
 
     manifest_path = theme / "manifest/icons.jsonl.xz"
     plain_manifest = theme / "manifest/icons.jsonl"
-    if not manifest_path.exists() and not plain_manifest.exists():
+    shards = sorted((theme / "manifest/icons").rglob("*.jsonl"))
+    if not manifest_path.exists() and not plain_manifest.exists() and not shards:
         errors.append("per-file provenance manifest is missing")
 
     manifest_lines = None
-    if plain_manifest.exists():
+    if shards:
+        manifest_lines = [line for p in shards for line in p.read_text(encoding="utf-8").splitlines()]
+    elif plain_manifest.exists():
         manifest_lines = plain_manifest.read_text(encoding="utf-8").splitlines()
     elif manifest_path.exists():
         with lzma.open(manifest_path, "rt", encoding="utf-8") as handle:

@@ -1,0 +1,32 @@
+name: Populate verified live source assets
+on:
+  push:
+    branches: [source-repo-2026-09-06]
+    paths: [.github/workflows/populate-source.yml]
+permissions:
+  contents: write
+jobs:
+  populate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: source-repo-2026-09-06
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install Pillow==12.3.0
+      - run: sudo apt-get update && sudo apt-get install -y ripgrep libgtk-3-bin
+      - run: python3 scripts/restore_darkcold_source.py
+      - run: python3 scripts/import_pinned_icons.py
+      - run: python3 scripts/validate_repository.py
+      - run: bash themes/darkcold-coonie/tools/test.sh
+      - run: python3 icons/coonie-aero-hoard/scripts/audit_theme.py icons/coonie-aero-hoard/Coonie-Aero-Hoard --report /tmp/icon-audit.md
+      - name: Commit verified source tree
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add themes/darkcold-coonie icons/coonie-aero-hoard/Coonie-Aero-Hoard
+          git commit -m 'Restore all 115933 verified icons and omitted DarkCold assets as live source'
+          git push origin HEAD:source-repo-2026-09-06

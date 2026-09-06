@@ -1,3 +1,16 @@
+# Working with the live source tree
+
+All 115,933 icons now live in `Coonie-Aero-Hoard/` beside `install.sh`. Edit those actual PNG/SVG/XPM files and their corresponding plain-text provenance rows in `manifest/icons/`.
+
+- Install directly: `bash install.sh --user` (preserves a timestamped backup).
+- Package current source without donors or release extraction: `bash scripts/build-release.sh`.
+- Per-file attribution and hashes: `Coonie-Aero-Hoard/manifest/icons/`.
+- Exact historical donor pins: `Coonie-Aero-Hoard/manifest/source-commits.json`.
+
+The older donor-selection rebuild instructions below describe historical development tooling. That workflow is now named `scripts/rebuild-from-donors.sh`; the default packaging command above uses checked-out artwork. GNOME Noble was a generated donor input, so the historical recipe alone does not reproduce the complete original environment.
+
+---
+
 # Coonie's Aero Hoard
 
 An intentionally overstuffed, glossy, colorful Linux icon theme for Cinnamon,

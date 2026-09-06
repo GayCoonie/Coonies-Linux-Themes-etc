@@ -1,0 +1,37 @@
+{
+  "crystal-remix": {
+    "commit": "f8863b558b8eedf22caea0eabe18030bfcbe0783",
+    "commit_date": "2025-12-22",
+    "remote": "https://github.com/dangvd/crystal-remix-icon-theme.git"
+  },
+  "gnome-colors": {
+    "commit": "8689d1d730df846d5ca3a5989c17ba30b9811c58",
+    "commit_date": "2015-08-24",
+    "remote": "https://github.com/gnome-colors/gnome-colors.git"
+  },
+  "newaita": {
+    "commit": "5b19f46a4ca918585038547b27810502a5997401",
+    "commit_date": "2022-03-18",
+    "remote": "https://github.com/cbrnix/Newaita-reborn.git"
+  },
+  "nuovext": {
+    "commit": "8ac099ab08e7278ed247deec3d8a0ae22b37e2c1",
+    "commit_date": "2023-09-08",
+    "remote": "https://github.com/redtide/icon-theme-nuovext.git"
+  },
+  "ocd": {
+    "commit": "48da15b1699f3e95cce902e538ae3a4755c5a48c",
+    "commit_date": "2016-04-26",
+    "remote": "https://github.com/niko-yanev/ocd.git"
+  },
+  "oxygen-refit": {
+    "commit": "522f7b40044bb41b9ffe924f42711a81932f82bf",
+    "commit_date": "2015-02-07",
+    "remote": "https://gitlab.com/Nanolx/oxygenrefit2.git"
+  },
+  "papirus": {
+    "commit": "5f8b701d7521e27b4859d7e4f9b0da4c423c036c",
+    "commit_date": "2026-08-01",
+    "remote": "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme.git"
+  }
+}

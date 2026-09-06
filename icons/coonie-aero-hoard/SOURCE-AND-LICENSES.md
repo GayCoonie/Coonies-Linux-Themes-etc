@@ -2,7 +2,7 @@
 
 Coonie's Aero Hoard is a curated aggregate. Each icon remains under its donor
 project's license; the build scripts and original packaging text are GPL-3.0-or-later.
-The per-file `manifest/icons.jsonl` identifies the donor and exact upstream path
+The per-file `Coonie-Aero-Hoard/manifest/icons/*.jsonl` (including nested size/context paths) identifies the donor and exact upstream path
 for every installed asset. Trademarked application logos belong to their
 respective owners.
 

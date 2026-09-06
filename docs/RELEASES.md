@@ -1,3 +1,9 @@
+# Historical release inventory
+
+The entries below record the pre-recovery release witnesses. As of the source-tree recovery, complete icon artwork and DarkCold image/font assets are also committed as ordinary files in their component directories. Releases are optional distribution/history material, never required inputs to routine validation, installation, or packaging.
+
+---
+
 # Release Inventory
 
 ## DarkCold Coonie 2.2.2

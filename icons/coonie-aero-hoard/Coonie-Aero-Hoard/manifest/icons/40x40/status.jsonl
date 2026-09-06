@@ -1,0 +1,12 @@
+{"path":"40x40/status/audio-volume-high.png","sha256":"8a4a91be60d7a9ce5f29690cfc68b7bd4d08309397cab5548d23cf6672b91b25","source":"crystal-remix","source_path":"40x40/status/audio-volume-high.png"}
+{"path":"40x40/status/audio-volume.png","sha256":"1305f0e18f2671f2edd36f4ec1672f28cba0598522b54615df00ed923a5bb5cd","source":"crystal-remix","source_path":"40x40/status/audio-volume.png"}
+{"path":"40x40/status/battery-low.png","sha256":"4ba6ab30bbf18b984b95fdfbafe1ff2395554691f51bb63307cfc187df5ae98c","source":"crystal-remix","source_path":"40x40/status/battery-low.png"}
+{"path":"40x40/status/camera-off.png","sha256":"7360be8551f88f3fc56dbe795fb200afb67bef84a8ba5826200cb0eda478825a","source":"crystal-remix","source_path":"40x40/status/camera-off.png"}
+{"path":"40x40/status/camera-on.png","sha256":"b758cadbd98f70d9e9b7bf89a37a63490c1cb9500c1f3fa24c7443fff464481a","source":"crystal-remix","source_path":"40x40/status/camera-on.png"}
+{"path":"40x40/status/dialog-information.png","sha256":"d8fface27ab78e0e913bdb40df72b669ff0f8df8f436af986508e4094afaef3f","source":"crystal-remix","source_path":"40x40/status/dialog-information.png"}
+{"path":"40x40/status/media-playback-paused.png","sha256":"138acceeec412cc02ffc64e1ed9ae8d2728d501ee487406c5066555e49527dbe","source":"crystal-remix","source_path":"40x40/status/media-playback-paused.png"}
+{"path":"40x40/status/media-playback-playing.png","sha256":"4474400f11f74b4432624dfe7409b21a7e9aede91d72bfaaf3e4a9cb1ac0bfb7","source":"crystal-remix","source_path":"40x40/status/media-playback-playing.png"}
+{"path":"40x40/status/media-playback-stopped.png","sha256":"cf166110891c86b3ac6ceeb21182f232cc7cbf0161d48f91355a07c3977d1a84","source":"crystal-remix","source_path":"40x40/status/media-playback-stopped.png"}
+{"path":"40x40/status/object-locked.png","sha256":"6a6cf62f387b971500f47006ba09c22ab7946ed18ff9c4a4a320a4c1613a87be","source":"crystal-remix","source_path":"40x40/status/object-locked.png"}
+{"path":"40x40/status/object-unlocked.png","sha256":"6ebf1f61e2582a45fe1e46270df98e95550b4a975d86afabb6a512bccd6b7608","source":"crystal-remix","source_path":"40x40/status/object-unlocked.png"}
+{"path":"40x40/status/update.png","sha256":"e534fff5a402356af42a929813df594f79c9b6c1ad39bbe7f10fe7ab2cd20cb6","source":"crystal-remix","source_path":"40x40/status/update.png"}

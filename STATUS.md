@@ -1,24 +1,18 @@
-# Project Status
+# Project status
 
-## Preserved and editable
+## Live source recovery
 
-- DarkCold Coonie 2.2.2: complete source/build/install/test tree plus `.tar.gz` and `.zip` release witnesses.
-- Coonie Aero Gel v1: ready-to-install Xcursor tree, aliases, generated atlases, original Library master sheets, deterministic builder, and release archive.
-- Coonie's Aero Hoard 1.1.2: compact reproducible source/packaging kit, preview, audit, checksums, and release summary.
-- Coonieglass ChatGPT UserCSS.
-- Project custom instructions, historical microhistory, field note, maintenance skill, and regression protocol.
+- DarkCold Coonie 2.2.2: source, font and raster assets plus the complete installation tree; checkout-based build and tests.
+- Aero Hoard 1.1.2: 115,933 actual icon paths, restored against every saved artwork SHA256, with 140 browsable per-directory provenance files, exact donor revisions and license texts.
+- Aero Gel v1: complete cursor roles/aliases, master atlases and builder retained.
+- Coonieglass: existing editable UserCSS retained.
+- Packaging and CI operate on the checkout; optional release witnesses do not supply missing files.
 
-## Known gaps
+## Remaining limits
 
-- The Aero Hoard install archive and Debian package are about 203–205 MB each and exceed GitHub's 100 MB single-file limit. They are intentionally represented by source, checksums, audit, preview, and summary rather than a misleading partial payload.
-- The Aero Hoard source kit requires its curated donor repositories to rebuild all 115,933 installed icon files. Those donor checkouts are not embedded here.
-- No live Linux Mint 21.3 Cinnamon/Nemo session was available during repository assembly, so static checks do not replace runtime visual verification.
-- Nemo's huge-icon regression remains a required runtime witness across icon, compact, and list views.
-- GitHub currently reports workflow `startup_failure`/`BuildFailed` before allocating any job. The workflow is preserved, and both of its commands pass locally; repository/account Actions enablement or billing policy must be checked before remote CI can run.
+- No live Mint 21.3 Cinnamon/Nemo desktop is available in the recovery environment. Huge Nemo icons and other appearance regressions still require the user's runtime witnesses.
+- Recovery restores the saved 1.1.2 pixels; it does not claim another visual fix.
+- The historical donor-selection builder is retained as `scripts/rebuild-from-donors.sh` in the icon component. Its GNOME Noble input was generated rather than directly present in the pinned donor checkout. It is historical tooling, not the normal packaging path or a claim of a fully automated original build environment.
+- The one-time source import uses pinned public donors and verifies exact output bytes. Once the source files are committed, neither that import nor its network access is needed again.
 
-## Next useful work
-
-1. Run the repository validator and component-native tests on Mint 21.3.
-2. Capture a baseline screenshot set for panel, menu, Nemo views, GTK dialogs, titlebars, and cursor roles.
-3. Record exact donor revisions for an Aero Hoard rebuild and decide whether large binaries belong in Git LFS or GitHub Releases.
-4. Turn every runtime defect into a narrow component-specific issue with before/after evidence.
+See `docs/SOURCE-RECOVERY.md` for the measured recovery and connector results.

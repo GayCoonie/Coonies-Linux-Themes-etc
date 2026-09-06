@@ -1,39 +1,38 @@
 # Coonie's Linux Themes, Icons, Cursors, and App Skins
 
-The working repository for **Linux and general Theming**: a maintained habitat of tactile, colorful, mid-2000s/Y2K/Frutiger-Aero desktop parts for Linux Mint Cinnamon and the applications that escape the desktop theme.
+The live source repository for **Linux and general Theming**: tactile, colorful desktop parts for Coonie's Linux Mint Cinnamon environment. Vista glass, XP structure, DarkCold machinery, bevels, gradients, purple/aqua/pink glow, pictorial icons and weird old-school details are intentional.
 
-This is compatibility archaeology, not a modernization exercise. Vista glass, XP-era readable structure, DarkCold machinery, dimensional controls, image-backed chrome, saturated aqua/purple/pink accents, pictorial icons, and a little productive weirdness are intentional.
+![DarkCold preview](assets/previews/darkcold-theme-preview-uploaded.png)
 
-![DarkCold Coonie preview](assets/previews/darkcold-theme-preview-uploaded.png)
+## Work directly in the checkout
 
-## What is here
+| Component | Editable and installable files | Build or install |
+| --- | --- | --- |
+| DarkCold Coonie 2.2.2 | `themes/darkcold-coonie/src/`, `assets/`, and complete `dist/` | `cd themes/darkcold-coonie && make build && ./install.sh` |
+| Aero Hoard 1.1.2 | `icons/coonie-aero-hoard/Coonie-Aero-Hoard/` — all 115,933 PNG/SVG/XPM icon paths | `bash icons/coonie-aero-hoard/install.sh --user` |
+| Aero Gel cursors | `cursors/coonie-aero-gel-v1/Coonie-Aero-Gel/` and `source-build/` | See the component README |
+| Coonieglass ChatGPT skin | `userstyles/Coonieglass-ChatGPT.user.css` | Install with Stylus |
+| Project guidance and provenance | `docs/`, `AGENTS.md`, component manifests and licenses | Read before visual changes |
 
-| Component | Current witness | Editable source | Exact release |
-| --- | --- | --- | --- |
-| GTK/Cinnamon/Muffin theme | DarkCold Coonie 2.2.2 | [`themes/darkcold-coonie/`](themes/darkcold-coonie/) | [`releases/darkcold/`](releases/darkcold/) |
-| Icon ecology | Coonie's Aero Hoard 1.1.2 | [`icons/coonie-aero-hoard/`](icons/coonie-aero-hoard/) | Source kit and release records in [`releases/icons/`](releases/icons/) |
-| Xcursor theme | Coonie Aero Gel v1 | [`cursors/coonie-aero-gel-v1/`](cursors/coonie-aero-gel-v1/) | [`releases/cursors/`](releases/cursors/) |
-| ChatGPT skin | Coonieglass Aqua Hoard Terminal | [`userstyles/Coonieglass-ChatGPT.user.css`](userstyles/Coonieglass-ChatGPT.user.css) | Same file is the installable UserCSS |
-| Continuity | project instructions, history, field notes | [`docs/`](docs/) | versioned in Git |
-| Maintenance method | theme-ecology skill | [`skills/maintain-linux-theme-ecologies/`](skills/maintain-linux-theme-ecologies/) | versioned in Git |
+**No release extraction or donor checkout is needed for ordinary editing, installation, packaging, or CI.** Images, fonts and cursor binaries are source assets here. The files under `releases/` are historical witnesses and optional downloads.
 
-## Start here
+## Validate and package
 
-- Theme work: read [`themes/darkcold-coonie/README.md`](themes/darkcold-coonie/README.md). For the full asset test, extract the 2.2.2 release archive and run `tools/test.sh` inside the extracted tree.
-- Icon work: read [`icons/coonie-aero-hoard/README.md`](icons/coonie-aero-hoard/README.md). The compact source kit expects curated donor repositories beside it in `../sources`.
-- Cursor work: read [`cursors/coonie-aero-gel-v1/README.md`](cursors/coonie-aero-gel-v1/README.md). Its source bundle rebuilds the Xcursor files from the atlases.
-- Cross-component work: read [`docs/COMPONENT-MATRIX.md`](docs/COMPONENT-MATRIX.md), [`docs/REGRESSION-CHECKLIST.md`](docs/REGRESSION-CHECKLIST.md), and [`AGENTS.md`](AGENTS.md).
-
-## Repository validation
+Python 3, Pillow, ripgrep and `gtk-update-icon-cache` are required for the combined checks. Debian packaging additionally needs `dpkg-deb`; component README files cover optional build tools.
 
 ```bash
 python3 scripts/validate_repository.py
+bash themes/darkcold-coonie/tools/test.sh
+python3 icons/coonie-aero-hoard/scripts/audit_theme.py icons/coonie-aero-hoard/Coonie-Aero-Hoard --report /tmp/coonie-icon-audit.md
+bash icons/coonie-aero-hoard/scripts/build-release.sh
 ```
 
-This performs structural, archive, metadata, UserCSS, and cursor-alias checks without installing anything. Runtime visual checks still require the target Mint/Cinnamon/Nemo environment.
+The validator checks actual image presence and SHA256 against the per-directory provenance records, icon index directories, DarkCold assets, cursor aliases and UserCSS metadata. A summary claiming 100,000 icons cannot substitute for the artwork.
 
-## Current target
+Keep icon provenance in `Coonie-Aero-Hoard/manifest/icons/` in sync with intentional asset edits. Existing rows document the recovered 1.1.2 witness; record subsequent changes and their provenance explicitly.
 
-The strongest concrete compatibility witness is Linux Mint 21.3 with Cinnamon 6.0.x and Nemo 6.0/5.8-era icon behavior. Later Cinnamon 6.x is supported by the current DarkCold package where its selectors and settings probing allow it, but each future toolkit release must be verified rather than assumed.
+## Continuity and target
 
-See [`STATUS.md`](STATUS.md) for known limits and the next useful work.
+Linux Mint 21.3, Cinnamon 6.0.x and Nemo are the primary runtime target. Read `docs/COMPONENT-MATRIX.md`, `docs/REGRESSION-CHECKLIST.md`, and `AGENTS.md`. Static and CI checks do not establish that the known huge-Nemo-icon defect is fixed on Coonie's machine.
+
+The source recovery and connector test are documented in `docs/SOURCE-RECOVERY.md`. `STATUS.md` records remaining gaps.
