@@ -40,3 +40,9 @@ The source recovery makes no visual redesign. Linux Mint 21.3/Cinnamon/Nemo visu
 GitHub import run https://github.com/GayCoonie/Coonies-Linux-Themes-etc/actions/runs/34004890192 passed all recovery gates and committed the full source tree as `2d1d6037e0bd05ffe899201e6789958f256b97d6`. That job independently verified the 115,933 artwork hashes, indexed directories, DarkCold structural/install/uninstall behavior, image formats, and GTK icon-cache generation on Ubuntu with Python 3.12/Pillow 12.3.0.
 
 The local source packaging test also produced a complete portable package and a Debian package accepted by `dpkg-deb --info`. The source tree, rather than those test packages, is the delivered result.
+
+## Remote checkout verification and subsequent edit
+
+After the import, an independent Git fetch verified all 115,933 icon blobs against the saved source bytes. The live tree contains 117,519 file entries, including 1,282 DarkCold files and 99 cursor files/aliases. Main was advanced without force to `0303d5f7f8d2d5f5ca3a584b0fc8c2c6e95e147e`.
+
+This verification section was added through a subsequent ordinary connector `update_file` operation on the existing file in `main`, using its current blob SHA. It demonstrates ongoing Contents API edits after the bulk source import, without a separate CLI login.
